@@ -40,7 +40,9 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-identity'
+gem 'omniauth-twitter'
 
+gem 'nifty-generators'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -52,3 +54,5 @@ group :development, :test do
   gem 'spring'
 end
 
+
+gem 'mocha', group: :test
