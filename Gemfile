@@ -36,7 +36,7 @@ gem 'devise'
 
 # Use Omniauth for Login with Google+, Facebook, identity
 gem 'omniauth'
-gem 'omniauth-google'
+#gem 'omniauth-google'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-identity'
