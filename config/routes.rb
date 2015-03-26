@@ -1,5 +1,5 @@
 #Auth::Application.routes.draw do
-  get 'persons/profile'
+ # get 'persons/profile'
 
  #resources :identities
 #end
@@ -16,9 +16,12 @@ Rails.application.routes.draw do
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  #Список роутов можно получить через консоль. Достаточно ввести команду:
+  #bundle exec rake routes
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+  root 'persons#profile'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
