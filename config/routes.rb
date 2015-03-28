@@ -1,15 +1,14 @@
 #Auth::Application.routes.draw do
  # get 'persons/profile'
-
  #resources :identities
 #end
-
 #get 'personal/profile', as: 'user_root'
 
 Rails.application.routes.draw do
+  root 'home#index'
   get 'persons/profile'
 
-  get 'home/index'
+  resource :home, only: :index
 
   devise_for :users
 
@@ -20,7 +19,7 @@ Rails.application.routes.draw do
   #bundle exec rake routes
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  #root 'home#index'
   #root 'persons#profile'
 
   # Example of regular route:
