@@ -1,12 +1,26 @@
+#Auth::Application.routes.draw do
+ # get 'persons/profile'
+ #resources :identities
+#end
+#get 'personal/profile', as: 'user_root'
+
 Rails.application.routes.draw do
-  get 'home/index'
+  root 'home#index'
+  get 'persons/profile'
+
+  resource :home, only: :index
 
   devise_for :users
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  #Список роутов можно получить через консоль. Достаточно ввести команду:
+  #bundle exec rake routes
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  #root 'home#index'
+  #root 'persons#profile'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -57,3 +71,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+

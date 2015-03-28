@@ -36,11 +36,13 @@ gem 'devise'
 
 # Use Omniauth for Login with Google+, Facebook, identity
 gem 'omniauth'
-gem 'omniauth-google'
+#gem 'omniauth-google'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-identity'
+gem 'omniauth-twitter'
 
+#gitgem 'nifty-generators'
 gem 'bootstrap-sass', '~> 3.3.4.1'
 
 group :development, :test do
@@ -54,3 +56,5 @@ group :development, :test do
   gem 'spring'
 end
 
+
+gem 'mocha', group: :test
