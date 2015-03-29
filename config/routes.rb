@@ -1,10 +1,14 @@
 #Auth::Application.routes.draw do
+  get 'session/controller'
+
  # get 'persons/profile'
  #resources :identities
 #end
 #get 'personal/profile', as: 'user_root'
 
 Rails.application.routes.draw do
+  get 'session/controller'
+
   root 'home#index'
   get 'persons/profile'
 
