@@ -1,21 +1,22 @@
-#Auth::Application.routes.draw do
-  get 'session/controller'
-
- # get 'persons/profile'
- #resources :identities
-#end
-#get 'personal/profile', as: 'user_root'
-
 Rails.application.routes.draw do
-  get 'session/controller'
-
+  #match '/auth/:provider/callback' :to => 'authentications#create', via: 'get'
+  #match '/authentications', :to => 'authentications#create', via: 'get'
+  devise_for :users
+  resource :home, only: :index
+  resource :project
+  resource :tasks
+  resource :authentications
   root 'home#index'
+
+  get 'authentications/controller'
+  get 'session/controller'
   get 'persons/profile'
 
-  resource :home, only: :index
-
-  devise_for :users
-
+  #http://localhost:3000/users/sign_in
+  #http://localhost:3000/users/sign_up
+  #http://localhost:3000/users/password/new
+  #http://localhost:3000/users/confirmation/new
+  #http://localhost:3000/users/unlock/new
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
