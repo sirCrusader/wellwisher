@@ -60,3 +60,5 @@ end
 
 
 gem 'mocha', group: :test
+gem 'slim-rails'
+gem 'slim'
