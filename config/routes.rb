@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resource :project
   resource :tasks
   resource :authentications
+  resource :categories
   root 'home#index'
 
   get 'authentications/controller'
