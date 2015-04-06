@@ -21,4 +21,4 @@ def self.create_with_omniouth(auth)
     user.uid = auth ["uid"]
     user.name = auth ["info"]["name"]
     end
-  end
+end
