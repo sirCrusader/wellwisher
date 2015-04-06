@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #match '/auth/:provider/callback' :to => 'authentications#create', via: 'get'
   #match '/authentications', :to => 'authentications#create', via: 'get'
-  devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   resource :home, only: :index
   resource :project
   resource :tasks
