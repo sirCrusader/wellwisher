@@ -1,15 +1,12 @@
 class OrdersController < ApplicationController
   before_filter :authenticate_user!, except => [:show, :index]
 
-  def index
-    # do something
+  def index;
   end
 
-  def show
-    # do something
+  def show;
   end
 
-  def create
-    # do something
+  def create;
   end
 end
