@@ -1,13 +1,24 @@
 Rails.application.routes.draw do
+
   #match '/auth/:provider/callback' :to => 'authentications#create', via: 'get'
   #match '/authentications', :to => 'authentications#create', via: 'get'
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+
+  root 'home#index'
+
   resource :home, only: :index
   resource :project
   resource :tasks
   resource :authentications
   resource :categories
-  root 'home#index'
+
+  devise_for :users, controllers: {
+                       omniauth_callbacks: 'user/omniauth_callbacks'
+                   }
+
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+    get '/users/omniauth/sign_out' => 'users/omniauth_callbacks#signout'
+  end
 
   get 'authentications/controller'
   get 'session/controller'
