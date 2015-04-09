@@ -4,7 +4,7 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = 'c980802c4682f5bd38f8e63e315e22c3e5bb89a1d210c021f2ec28a9643cea97d397b43ea38b47fd2f2b971b6fa4f02553c6d4df22c3e9fa62cde81f77391ebc'
+  config.secret_key = 'c980802c4682f5bd38f8e63e315e22c3e5bb89a1d210c021f2ec28a9643cea97d397b43ea38b47fd2f2b971b6fa4f02553c6d4df22c3e9fa62cde81f77391ebc'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -233,7 +233,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-    config.omniauth :twitter, ENV["hLoiP3qgtHAHokhIOIeayvxN2"], ENV["	YnnJyFfVlQnqntZBxbFADZbO9ZJqMlLPvzotylkHmHBxmm1rX2"]
+  config.omniauth :facebook, Rails.application.secrets.facebook_key, Rails.application.secrets.facebook_secret, secure_image_url: true, scope: 'email,publish_stream'
+  config.omniauth :twitter, Rails.application.secrets.twitter_consumer_key, Rails.application.secrets.twitter_consumer_secret
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
