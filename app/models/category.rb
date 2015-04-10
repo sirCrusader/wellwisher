@@ -1,5 +1,6 @@
 class Category < ActiveRecord::Base
   belongs_to :user
+  has_many :wishs
 
   attr_accessor :name, :category_image, :user
 =begin
