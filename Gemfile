@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.4'
+ruby '2.2.1'
 
 gem 'rails',                    '~> 4.2.1'                      # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'pg',                       '~> 0.18.1'                     # Use postgresql as the database for Active Record
@@ -16,8 +16,8 @@ gem 'omniauth-google-oauth2',   '~> 0.2.6'
 gem 'omniauth-facebook',        '~> 2.0.1'
 gem 'omniauth-identity',        '~> 1.1.1'
 gem 'omniauth-twitter',         '~> 1.1.0'
-gem 'slim-rails',               '~> 3.0.1'
-gem 'slim',                     '~> 3.0.3'
+# gem 'slim-rails',               '~> 3.0.1'
+# gem 'slim',                     '~> 3.0.3'
 gem 'bootstrap-sass',           '~> 3.3.4.1'
 gem 'paperclip',                '~> 4.2'
 gem 'sdoc',                     '~> 0.4.0', group: :doc         # bundle exec rake doc:rails generates the API under doc/api.
