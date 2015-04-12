@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>Well Wisher</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body background="/home/marichka/wellwisher/app/assets/images/2.jpg">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Well Wisher</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="#">About</a></li>
+      </ul>
+      </li>
+      <ul class="nav navbar-nav">
+        <li><a href="#">Contacts</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Sign Up</a></li>
+        <li><a href="#">Sign In</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <style>
+      h1 {
+          font-family: COMIC SANS MS;
+          font-style: italic;
+          font-size: 500%
+      }
+      p {
+          font-family: COMIC SANS MS;
+          font-style: italic;
+          font-size: 130%
+      }
+  </style>
+
+  <h1 style="color:MediumTurquoise">Well Wisher</h1>
+  <p style="color:MediumTurquoise">Create and let the world know what you desire</p>
+</div>
+</body>
+</html>
+
+  <% if user_signed_in? %>
+      <span>Hello, <%= current_user.email %></span>
+      <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+  <% else %>
+      <%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %>
+  <% end %>
+
+
+  <!--<p>Soon at https://wellwisher.herokuapp.com/</p>-->
+  <!--<p>Find me in app/views/home/index.html.erb</p>-->
