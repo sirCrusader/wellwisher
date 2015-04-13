@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resource :categories
 
   devise_for :users, controllers: {
-                       omniauth_callbacks: 'user/omniauth_callbacks'
+                       omniauth_callbacks: 'users/omniauth_callbacks'
                    }
 
   devise_scope :user do

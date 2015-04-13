@@ -37,5 +37,3 @@ group :development, :test do
   gem 'spring',                 '~> 1.3.4'                      # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 end
 
-
-
