@@ -16,3 +16,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   alias_method :twitter, :all
   alias_method :facebook, :all
 end
+
