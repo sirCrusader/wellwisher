@@ -1,2 +1,5 @@
-<%= @categories.map { |i| "#{i.name}: #{i.category_image}"}.join("<br />") %>
 This is your category
+
+<% @categories.each do |category| %>
+      <div><%= category.name %></div>
+<% end %>

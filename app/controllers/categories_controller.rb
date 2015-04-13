@@ -7,11 +7,22 @@ class CategoriesController < ApplicationController
   end
 
   def new
-
+    @category = Category.new
   end
 
   def create
-    render text: 'text'
+    @category = Category.new
+    @category.assign_attributes(name: params['name'])
+
+    if @category.save
+        redirect_to :action=>"show", :controller=>"categories"
+        # format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        # format.json { render :show, status: :created, location: @category }
+    else
+        # format.html { render :new }
+        # format.json { render json: @category.errors, status: :unprocessable_entity }
+    end
+    #render text: params['name']
   end
 
   # /categories/1/edit GET
