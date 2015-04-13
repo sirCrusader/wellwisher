@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   def show
     @categories = Category.all
     #render text: @categories.map { |i| "#{i.name}: #{i.category_image}"}.join("<br />")
-    #render text: 'text'
+
   end
 
   def new
@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-
+    render text: 'text'
   end
 
   # /categories/1/edit GET
