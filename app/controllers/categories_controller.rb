@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
     @category.assign_attributes(name: params['name'])
 
     if @category.save
-        redirect_to :action=>"show", :controller=>"categories"
+        redirect_to :action=>"profile", :controller=>"persons"
         # format.html { redirect_to @category, notice: 'Category was successfully created.' }
         # format.json { render :show, status: :created, location: @category }
     else

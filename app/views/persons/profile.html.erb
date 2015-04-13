@@ -1,4 +1,7 @@
 <h1> Hi, this is Your profile </h1>
+<span>Hello, <%= current_user.email %></span>
+<button type="button" onclick="alert('Well Wisher')">Create</button>
+This is your category
 
 <br>
 </div>
@@ -59,3 +62,6 @@
 
 <script src="/plugins/bootstrap-pager.js"></script>
 </div>
+<% @categories.each do |category| %>
+    <div><%= category.name %></div>
+<% end %>
