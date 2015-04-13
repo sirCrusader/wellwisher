@@ -1,3 +1,7 @@
 <span>Hello, <%= current_user.email %></span>
 <button type="button" onclick="alert('Well Wisher')">Create</button>
+This is your category
 
+<% @categories.each do |category| %>
+    <div><%= category.name %></div>
+<% end %>
