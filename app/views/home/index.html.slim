@@ -1,7 +1,7 @@
-h1   Well Wisher
-
-body
-
+/h1   Well Wisher
+/
+/body
+/
 
 /#buttons
 /  div.twitter.button
@@ -20,14 +20,14 @@ body
 /}(document, 'script', 'twitter-wjs');)
 
 
-- if user_signed_in?
-  span Hello, "#{current_user.email}"
-  = link_to 'Logout', destroy_user_session_path, method: :delete
-- else
-  = link_to 'Sign in ', new_user_session_path
-  span or
-  = link_to ' Sign up ', new_user_registration_path
-
-
-<p> Soon at https://wellwisher.herokuapp.com/</p>
-<p> Find me in app/views/home/index.html.erb</p>
+/- if user_signed_in?
+/  span Hello, "#{current_user.email}"
+/  = link_to 'Logout', destroy_user_session_path, method: :delete
+/- else
+/  = link_to 'Sign in ', new_user_session_path
+/  span or
+/  = link_to ' Sign up ', new_user_registration_path
+/
+/
+/<p> Soon at https://wellwisher.herokuapp.com/</p>
+/<p> Find me in app/views/home/index.html.erb</p>

@@ -7,7 +7,7 @@ class AuthenticationsController < ApplicationController
     auth = request.env['rack.auth']
     current_user.authentications.find_or_create_by_provider_and_uid(auth['provider'], auth['uid'])
     flash[:notice] = 'Authentication successful.'
-    redirect_to authentications_url
+    redirect_to action: 'destroy'
   end
 
   def destroy

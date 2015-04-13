@@ -25,6 +25,32 @@
   </script>
 </head>
 <body background="<%= asset_path "2.jpg" %>">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Well Wisher</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="#">About</a></li>
+      </ul>
+      </li>
+      <ul class="nav navbar-nav">
+        <li><a href="#">Contacts</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!--<li><a href="#">Sign Up</a></li>-->
+        <!--<li><a href="#">Sign In</a></li>-->
+        <% if user_signed_in? %><li>
+        <span>Hello, <%= current_user.email %></span>
+        <%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+        <% else %><li>
+        <%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
 <%= yield %>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
