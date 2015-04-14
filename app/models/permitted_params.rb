@@ -1,7 +1,7 @@
 class PermittedParams < Struct.new(:params, :current_user)
 
   def user
-    params.require(:user).permit(:email, :password, :uid, :provider)
+    params.require(:user).permit(:email, :password, :uid, :provider, :confirmation_token, :confirmed_at)
   end
 
   def identity
