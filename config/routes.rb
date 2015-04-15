@@ -3,25 +3,42 @@ Rails.application.routes.draw do
   #match '/auth/:provider/callback' :to => 'authentications#create', via: 'get'
   #match '/authentications', :to => 'authentications#create', via: 'get'
 
-  root 'home#index'
+  # devise_scope :user do
+  #   authenticated :user do
+  #     root to: 'persons#profile'
+  #   end
+  #
+  #   unauthenticated do
+  #     root to: 'home#index'
+  #   end
+  # end
+
+  authenticated :user do
+    root to: 'persons#profile', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root to: 'home#index', as: :unauthenticated_root
+  end
 
   resource :home, only: :index
-  resource :project
-  resource :tasks
-  resource :authentications
-  resource :categories
+  resources :project
+  resources :tasks
+  resources :categories
+  resources :wishes
 
   devise_for :users, controllers: {
-                       omniauth_callbacks: 'user/omniauth_callbacks'
-                   }
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    confirmations: 'users/confirmations'
+  }
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
     get '/users/omniauth/sign_out' => 'users/omniauth_callbacks#signout'
   end
 
-  get 'authentications/controller'
-  get 'session/controller'
   get 'persons/profile'
 
   #http://localhost:3000/users/sign_in

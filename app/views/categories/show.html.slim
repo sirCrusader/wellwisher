@@ -1,0 +1,5 @@
+= @category.name
+
+ul.wisher-lists
+  - @category.wishes.each do |wish|
+    li= link_to wish.title, wish_path(wish)

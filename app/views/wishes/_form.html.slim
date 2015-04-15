@@ -1,0 +1,7 @@
+= form_for @wish do |f|
+  ul
+    li= f.text_field :title
+    li= f.file_field :image
+    - if @categories.present?
+      li= f.collection_select :category_id, @categories, :id, :name, prompt: 'Choose a wish category'
+    li= f.submit 'Save'

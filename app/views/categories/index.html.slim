@@ -1,0 +1,7 @@
+h2 My Categories
+
+ul
+  - @categories.each do |category|
+    li= link_to category.name, category
+    li= link_to 'edit', edit_category_path(category)
+    li= link_to 'destroy', edit_category_path(category), method: :delete, data: { confirm: 'Are your sure?' }
