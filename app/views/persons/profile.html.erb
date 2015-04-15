@@ -1,67 +1,34 @@
-<h1> Hi, this is Your profile </h1>
-<span>Hello, <%= current_user.email %></span>
-<button type="button" onclick="alert('Well Wisher')">Create</button>
-This is your category
+<h2> Hi, this is Your profile </h2>
 
 <br>
-</div>
-<div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.rlsandbox.com/img/profile.jpg"></a>
 
+<div class="col-sm-2">
+  <%= link_to persons_profile_path do %>
+    <img title="profile image" class="img-circle img-responsive" src="http://www.rlsandbox.com/img/profile.jpg" />
+  <% end %>
+  <span><%= current_user.email %></span>
 </div>
-</div>
+
 <br>
 
 <div id="w">
   <div id="content" class="clearfix">
-<nav id="profiletabs">
-    <ul class="nav navbar-nav">
-      <li><a href="#add new wish">Add new category</a></li>
-      <li><a href="#add new wish">Add new wish</a></li>
-      <li><a href="#my wish lists">My wish lists</a></li>
-      <li><a href="#settings">Settings</a></li>
-    </ul>
-
-  </nav>
-
-<style>
-    h1 {
-        font-family: COMIC SANS MS;
-        font-style: italic;
-        font-size: 130%
-    }
-</style>
-
-    <!--This forms opened after click to "Add new wish"-->
-
+    <nav id="profiletabs">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to 'Add new category', new_category_path %>
+        </li>
+        <li>
+          <%= link_to 'My categories', categories_path %>
+        </li>
+        <li>
+          <%= link_to 'Add new wish', new_wish_path %>
+        </li>
+        <li>
+          <%= link_to 'My wish lists', wishes_path%>
+        </li>
+        <li><a href="#settings">Settings</a></li>
+      </ul>
+    </nav>
   </div>
-  <div class="modal-body">
-    <form class="form form-horizontal" id="formContact">
-      <input name="_csrf" id="token" type="hidden" value="CkMEALL0JBMf5KSrOvu9izzMXCXtFQ/Hs6QUY=">
-      <div class="control-group">
-        <label class="control-label" for="inputSender">Description</label>
-        <div class="controls">
-          <input type="text" name="sender" id="inputdescription" class="input-large" placeholder="Type your description here">
-        </div>
-      </div>
-
-      <div class="control-group">
-        <label class="control-label" for="inputSender">Links</label>
-        <div class="controls">
-          <input type="text" name="sender" id="inputdescription" class="input-large" placeholder="Add link">
-        </div>
-      </div>
-
-      <div class="control-group">
-        <label class="control-label" for="addlinks">Image</label>
-        <div class="controls">
-          <input type="text" name="sender" id="addimage" class="input-large" placeholder="Upload image">
-        </div>
-      </div>
-    </form>
-  </div>
-
-<script src="/plugins/bootstrap-pager.js"></script>
 </div>
-<% @categories.each do |category| %>
-    <div><%= category.name %></div>
-<% end %>

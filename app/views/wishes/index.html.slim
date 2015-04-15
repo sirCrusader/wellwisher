@@ -1,0 +1,8 @@
+h1 My wishes list
+
+ul
+  - @wishes.each do |wish|
+    li= wish.title
+    li= image_tag wish.image.url(:small), class: 'img-circle'
+    li= link_to 'edit', edit_wish_path(wish)
+    li= link_to 'destroy', wish_path(wish), method: :delete, data: { confirm: 'Are your sure?' }

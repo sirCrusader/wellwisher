@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :lockable, :confirmable
 
-  has_many :authentications
+  # has_many :authentications
+  has_many :categories, dependent: :destroy
+  has_many :wishes, dependent: :destroy
 
   def password_required?
     super && provider.blank?

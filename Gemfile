@@ -16,14 +16,16 @@ gem 'omniauth-google-oauth2',   '~> 0.2.6'
 gem 'omniauth-facebook',        '~> 2.0.1'
 gem 'omniauth-identity',        '~> 1.1.1'
 gem 'omniauth-twitter',         '~> 1.1.0'
-# gem 'slim-rails',               '~> 3.0.1'
-# gem 'slim',                     '~> 3.0.3'
+gem 'slim-rails',               '~> 3.0.1'
+gem 'slim',                     '~> 3.0.3'
 gem 'bootstrap-sass',           '~> 3.3.4.1'
 gem 'paperclip',                '~> 4.2'
 gem 'sdoc',                     '~> 0.4.0', group: :doc         # bundle exec rake doc:rails generates the API under doc/api.
 gem 'mocha',                    '~> 1.1.0', group: :test
 gem 'capistrano-rails',         '~> 1.1.2', group: :development # Use Capistrano for deployment
 gem 'bcrypt',                   '~> 3.1.10'                     # Use ActiveModel has_secure_password
+gem 'kaminari',                 '~> 0.16.3'
+gem 'simple_form',              '~> 3.1.0'
 
 group :production do
   gem 'unicorn',                '~> 4.8.3'                      # Use Unicorn as the app server

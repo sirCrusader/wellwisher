@@ -1,60 +1,59 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Wellwisher</title>
+  <head>
+    <title>Wellwisher</title>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <script>
-      window.fbAsyncInit = function() {
-          FB.init({
-              appId      : '1380230438970772',
-              xfbml      : true,
-              version    : 'v2.3'
-          });
-      };
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '1380230438970772',
+                xfbml      : true,
+                version    : 'v2.3'
+            });
+        };
 
-      (function(d, s, id){
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) {return;}
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js";
-          fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-  </script>
-</head>
-<body background="<%= asset_path "2.jpg" %>">
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Well Wisher</a>
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+  </head>
+  <body background="<%= asset_path '2.jpg' %>">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to 'Well Wisher', authenticated_root_path, class: 'navbar-brand' %>
+        </div>
+        <div>
+          <ul class="nav navbar-nav">
+            <li><a href="#">About</a></li>
+          </ul>
+          </li>
+          <ul class="nav navbar-nav">
+            <li><a href="#">Contacts</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+              <li><%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %></li>
+            <% end %>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <div class="container row">
+      <%= yield %>
     </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li><a href="#">About</a></li>
-      </ul>
-      </li>
-      <ul class="nav navbar-nav">
-        <li><a href="#">Contacts</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <!--<li><a href="#">Sign Up</a></li>-->
-        <!--<li><a href="#">Sign In</a></li>-->
-        <% if user_signed_in? %><li>
-        <%= link_to 'Home', root_path %>
-        <!--<span>Hello, <%= current_user.email %></span>-->
-        <%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
-        <% else %><li>
-        <%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %></li>
-        <% end %>
-      </ul>
-
-    </div>
-  </div>
-</nav>
-<%= yield %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-</body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </body>
 </html>

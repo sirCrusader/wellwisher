@@ -1,40 +1,55 @@
 class CategoriesController < ApplicationController
 
-  def show
-    @categories = Category.all
-    #render text: @categories.map { |i| "#{i.name}: #{i.category_image}"}.join("<br />")
+  before_action :find_category, only: [:show, :edit, :update, :destroy]
+  respond_to :html
 
+  def index
+    @categories = current_user.categories.all.page(params[:page]).per(10)
+  end
+
+  def show
+    respond_with @category
   end
 
   def new
-    @category = Category.new
+    @category = current_user.categories.build
   end
 
   def create
-    @category = Category.new
-    @category.assign_attributes(name: params['name'])
-
+    @category = current_user.categories.create(permitted_params.category)
     if @category.save
-        redirect_to :action=>"profile", :controller=>"persons"
-        # format.html { redirect_to @category, notice: 'Category was successfully created.' }
-        # format.json { render :show, status: :created, location: @category }
+      flash[:success] = 'Your category was successfully created'
+      redirect_to persons_profile_path
     else
-        # format.html { render :new }
-        # format.json { render json: @category.errors, status: :unprocessable_entity }
+      flash[:errors] = @category.errors.full_messages
+      redirect_to action: :new
     end
-    #render text: params['name']
   end
 
-  # /categories/1/edit GET
   def edit
-
+    respond_with @category
   end
 
   def update
-
+    if @category.update_attributes(permitted_params.category)
+      flash[:success] = 'Your category was successfully updated'
+      redirect_to category_path(@category)
+    else
+      flash[:errors] = @category.errors.full_messages
+      redirect_to action: :edit
+    end
   end
 
   def destroy
-
+    @category.destroy
+    flash[:success] = 'Your category was successfully deleted'
+    redirect_to persons_profile_path
   end
+
+  private
+
+    def find_category
+      @category = current_user.categories.find(params[:id])
+    end
+
 end
